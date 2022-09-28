@@ -1,0 +1,24 @@
+@import url(style.css);
+
+/* Style Hero Section */
+
+.hero .title {
+    font-size: 2.6rem;
+}
+
+.hero .desc {
+    line-height: 1.5;
+}
+
+.hero .primary-button {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.hero .card {
+    cursor: pointer;
+}
+
+.hero .card:hover {
+    border-color: var(--secondary-color);
+}

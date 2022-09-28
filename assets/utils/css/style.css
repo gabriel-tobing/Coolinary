@@ -1,0 +1,87 @@
+/* Variable CSS */
+
+:root {
+    --primary-color: #f56d15;
+    --secondary-color: #D97C0F;
+    --tertier-color: #8C4D03;
+    --white-color: #fff5ee;
+    --black-color: #100720;
+
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    --fw-extrabold: 800;
+}
+
+
+
+/* Reset CSS and Style Base */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+/* Reuseable Class */
+
+.title {
+    color: var(--black-color);
+    font-weight: var(--fw-extrabold);
+}
+
+.desc {
+    color: var(--black-color);
+    font-weight: var(--fw-regular);
+}
+
+.primary-button {
+    display: inline-block;
+    padding: 0.7rem 1.4rem;
+    border-radius: 0.4rem;
+    font-weight: var(--fw-semibold);
+}
+
+
+
+/* Style Navbar Section */
+
+.navbar .brand {
+    width: 4rem;
+    height: 4rem;
+}
+
+.navbar .nav-link {
+    color: var(--black-color) !important;
+    font-weight: var(--fw-semibold);
+    transition: 0.3s;
+}
+
+.navbar .nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.navbar .nav-link.active {
+    color: var(--primary-color) !important;
+    font-weight: var(--fw-bold);
+}
+
+.navbar .primary-button {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
