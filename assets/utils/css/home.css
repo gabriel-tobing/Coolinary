@@ -88,6 +88,7 @@ svg {
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .food .card.vegan .vegan-parameter {
