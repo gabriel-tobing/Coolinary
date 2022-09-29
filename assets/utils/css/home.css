@@ -29,6 +29,7 @@
 
 .food .card {
     border-radius: 0.2rem;
+    user-select: none;
 }
 
 .food .card img {
