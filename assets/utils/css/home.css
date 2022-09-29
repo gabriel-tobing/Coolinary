@@ -82,3 +82,23 @@ svg {
     font-weight: var(--fw-semibold);
     text-transform: capitalize;
 }
+
+.food .card .vegan-parameter,
+.food .card .health-parameter {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+}
+
+.food .card.vegan .vegan-parameter {
+    background-color: #3EC70B;
+}
+
+.food .card.not-vegan .vegan-parameter,
+.food .card.not-healthy .health-parameter {
+    background-color: #FF1E1E;
+}
+
+.food .card.healthy .health-parameter {
+    background-color: #277BC0;
+}
