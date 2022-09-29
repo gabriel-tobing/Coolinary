@@ -22,3 +22,62 @@
 .hero .card:hover {
     border-color: var(--secondary-color);
 }
+
+
+
+/* Favorite Foods Section */
+
+.food .card {
+    border-radius: 0.2rem;
+}
+
+.food .card img {
+    border-radius: 0.2rem;
+}
+
+.food .card .card-info {
+    color: var(--black-color);
+    font-weight: var(--fw-medium);
+}
+
+svg {
+    height: 20px;
+}
+
+.rating-background {
+    width: 100%;
+    height: 100%;
+    fill: #FFE372;
+    stroke: red;
+    stroke-width: 1;
+}
+
+.rating-value {
+    height: 100%;
+    fill: var(--primary-color);
+}
+
+.food .card .primary-button {
+    display: block;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    border-radius: 0.6rem;
+    color: var(--white-color);
+    font-weight: var(--fw-medium);
+    text-align: center;
+}
+
+.food .card .type {
+    position: absolute;
+    top: 0.7rem;
+    left: 0.7rem;
+    padding: 0.3rem 0.7rem;
+    background-color: #3B44F6;
+    border-radius: 0.4rem;
+}
+
+.food .card .type .food-type {
+    color: var(--white-color);
+    font-weight: var(--fw-semibold);
+    text-transform: capitalize;
+}
