@@ -3,7 +3,7 @@ const cardContainer = document.getElementById("card-container");
 const fetchAPI = async () => {
     let card = "";
     
-    const API_KEY = "b2a90696cc444948aebeac126c2f1070";
+    const API_KEY = "527465d2b6514ee7b5ea0e42fb8b7eb6";
 
     const fetchData = await fetch(`https://api.spoonacular.com/recipes/random?number=4&apiKey=${API_KEY}`);
     const result = await fetchData.json();
