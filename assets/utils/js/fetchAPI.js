@@ -18,7 +18,7 @@ const cardComponent = (data) => {
     if(data.dishTypes.length == 0) {
         return `
             <div class="card-group">
-                <div class="card shadow-sm ${ data.vegetarian ? "vegan" : "not-vegan" } ${ data.veryHealthy ? "healthy" : "not-healthy" }">
+                <div class="card shadow-sm ${ data.vegetarian ? "vegan" : "not-vegan" } ${ data.glutenFree ? "free-sugar" : "not-free-sugar" }">
                     <img src="${ data.image }" class="card-img-top" alt="${ data.title }" style="height: 200px; object-fit: cover;">
 
                     <div class="card-body pt-3 px-2">
@@ -50,7 +50,7 @@ const cardComponent = (data) => {
 
                         <div class="d-flex align-items-center gap-2 mt-3">
                             <div class="vegan-parameter" title="${ data.vegan ? "Cocok untuk Vegetarian" : "Tidak cocok untuk Vegetarian" }"></div>
-                            <div class="health-parameter" title="${ data.veryHealthy ? "Makanan yang menyehatkan" : "Tidak menyehatkan" }"></div>
+                            <div class="sugar-parameter" title="${ data.glutenFree ? "Bebas gula" : "Tidak bebas gula" }"></div>
                         </div>
 
                         <div class="mt-4">
@@ -63,7 +63,7 @@ const cardComponent = (data) => {
     } else {
         return `
             <div class="card-group">
-                <div class="card shadow-sm ${ data.vegan ? "vegan" : "not-vegan" } ${ data.veryHealthy ? "healthy" : "not-healthy" }">
+                <div class="card shadow-sm ${ data.vegan ? "vegan" : "not-vegan" } ${ data.glutenFree ? "free-sugar" : "not-free-sugar" }">
                     <img src="${ data.image }" class="card-img-top" alt="${ data.title }" style="width: 100%; height: 200px; object-fit: cover;">
 
                     <div class="card-body pt-3 px-2">
@@ -95,7 +95,7 @@ const cardComponent = (data) => {
 
                         <div class="d-flex align-items-center gap-2 mt-3">
                             <div class="vegan-parameter" title="${ data.vegan ? "Cocok untuk Vegetarian" : "Tidak cocok untuk Vegetarian" }"></div>
-                            <div class="health-parameter" title="${ data.veryHealthy ? "Makanan yang menyehatkan" : "Tidak menyehatkan" }"></div>
+                            <div class="sugar-parameter" title="${ data.glutenFree ? "Bebas gula" : "Tidak bebas gula" }"></div>
                         </div>
 
                         <div class="mt-4">
