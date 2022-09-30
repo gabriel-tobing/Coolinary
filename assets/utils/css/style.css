@@ -85,3 +85,63 @@ a {
     background-color: var(--primary-color);
     color: var(--white-color);
 }
+
+
+
+/* Style Footer Section */
+
+.footer {
+    background-color: var(--black-color);
+}
+
+.footer .title,
+.footer .desc {
+    color: var(--white-color);
+}
+
+.footer .footer-link {
+    display: inline-block;
+    padding: 0.3rem 0.5rem;
+    color: var(--white-color);
+    font-weight: var(--fw-medium);
+    margin: 0.3rem 0;
+}
+
+.footer .footer-link:hover {
+    color: var(--primary-color);
+}
+
+.footer .subscribe-input {
+    width: 17rem;
+    border: none;
+    outline: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    color: var(--black-color);
+    font-weight: var(--fw-regular);
+}
+
+.footer .subscribe-button {
+    display: inline-block;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    background-color: #FF1E1E;
+    border-radius: 0.3rem;
+    color: var(--white-color);
+    font-weight: var(--fw-medium);
+}
+
+
+
+@media only screen and (max-width: 1226px) {
+    .footer .subscribe-input {
+        width: 100%;
+    }
+
+    .footer .subscribe-button {
+        display: block;
+        width: 100%;
+        margin-top: 0.7rem;
+    }
+}
