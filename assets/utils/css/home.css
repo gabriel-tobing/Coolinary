@@ -144,6 +144,8 @@ svg {
     outline: none;
     padding: 0.5rem 1rem;
     border-radius: 0.3rem;
+    color: var(--black-color);
+    font-weight: var(--fw-regular);
 }
 
 .footer .subscribe-button {
