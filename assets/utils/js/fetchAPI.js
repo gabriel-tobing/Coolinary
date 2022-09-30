@@ -3,7 +3,7 @@ const cardContainer = document.getElementById("card-container");
 const fetchAPI = async () => {
     let card = "";
     
-    const API_KEY = "f497c4b7256042e9af6f4ccccfc458d1";
+    const API_KEY = "b2a90696cc444948aebeac126c2f1070";
 
     const fetchData = await fetch(`https://api.spoonacular.com/recipes/random?number=4&apiKey=${API_KEY}`);
     const result = await fetchData.json();
@@ -54,7 +54,7 @@ const cardComponent = (data) => {
                         </div>
 
                         <div class="mt-4">
-                            <a href="${ data.id }" class="primary-button shadow-sm">Lihat Resep</a>
+                            <a href="details.html" class="primary-button shadow-sm" id="detail-button">Lihat Resep</a>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@ const cardComponent = (data) => {
                         </div>
 
                         <div class="mt-4">
-                            <a href="${ data.id }" class="primary-button shadow-sm">Lihat Resep</a>
+                            <a href="details.html" class="primary-button shadow-sm" id="detail-button">Lihat Resep</a>
                         </div>
                     </div>
 
@@ -110,6 +110,20 @@ const cardComponent = (data) => {
             </div>
         `
     }
+}
+
+const detailComponent = (data) => {
+    return `
+        <div class="col-12">
+            <img src="${ data.image }">
+        </div>
+        <div class="col-12">
+            <h1>${ data.title }</h1>
+        </div>
+        <div class="col-12">
+            <h1>${ data.dishTypes[0] }</h1>
+        </div>
+    `
 }
 
 fetchAPI();
