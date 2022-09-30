@@ -18,6 +18,18 @@
 
 /* Reset CSS and Style Base */
 
+::-webkit-scrollbar {
+    width: 0.6rem;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+}
+
 * {
     margin: 0;
     padding: 0;
