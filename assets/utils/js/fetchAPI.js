@@ -126,4 +126,4 @@ const detailComponent = (data) => {
     `
 }
 
-fetchAPI();
+// fetchAPI();
