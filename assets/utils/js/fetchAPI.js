@@ -1,11 +1,13 @@
+const API_KEY = "69bda1b7b7ae4dbe9c3c1f6b5a37baa7";
+
+
+
 /* Fetch API for Favorite Foods Section */
 
 const cardContainer = document.getElementById("card-container");
 
 const fetchAPI = async () => {
     let card = "";
-    
-    const API_KEY = "527465d2b6514ee7b5ea0e42fb8b7eb6";
 
     const fetchData = await fetch(`https://api.spoonacular.com/recipes/random?number=4&apiKey=${API_KEY}`);
     const result = await fetchData.json();
@@ -127,18 +129,19 @@ const searchButton = document.getElementById("search-button");
 searchInput.addEventListener("keyup", (e) => {
     const userInput = searchInput.value;
 
-    if(userInput == "") {
+    if(userInput == "" && e.keyCode != 13) {
         fetchRandomFood();
         listEl.style.display = "none";
         searchInput.classList.remove("active");
     } else if(userInput != "" && e.keyCode == 13) {
         fetchSearchFood(userInput);
         searchInput.classList.add("active");
-    } else if(userInput == "" && e.keyCode == 13) {
-        return false;
     } else if(userInput != "") {
         fetchAutoComplete(userInput);
+        listEl.style.display = "block";
         searchInput.classList.add("active");
+    } else if(userInput == "" && e.keyCode == 13) {
+        return false;
     }
 });
 
@@ -170,8 +173,6 @@ const foodComponent = (data) => {
 
 const fetchSearchFood = async (value) => {
     let foodCard = "";
-    
-    const API_KEY = "527465d2b6514ee7b5ea0e42fb8b7eb6";
 
     const fetchData = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${value}&number=12&apiKey=${API_KEY}`);
     const data = await fetchData.json();
@@ -184,8 +185,6 @@ const fetchSearchFood = async (value) => {
 
 const fetchRandomFood = async () => {
     let card = "";
-    
-    const API_KEY = "527465d2b6514ee7b5ea0e42fb8b7eb6";
 
     const fetchData = await fetch(`https://api.spoonacular.com/recipes/random?number=12&apiKey=${API_KEY}`);
     const result = await fetchData.json();
@@ -202,8 +201,6 @@ const listEl = document.getElementById("list-group");
 
 const fetchAutoComplete = async (value) => {
     let listGroupEl = "";
-
-    const API_KEY = "527465d2b6514ee7b5ea0e42fb8b7eb6";
 
     const fetchData = await fetch(`https://api.spoonacular.com/recipes/autocomplete?number=5&query=${value}&apiKey=${API_KEY}`);
     const datas = await fetchData.json();
@@ -228,34 +225,17 @@ submitButton.addEventListener("click", (e) => {
     const userInput = searchInput.value;
     const optionValue = selectEl.value;
 
-    if(userInput != "") {
-        filterSearchRecipe(userInput, optionValue);
+    if(userInput != "" && optionValue != "") {
+        filterSearchRecipe(userInput, optionValue)
     } else {
-        filterRecipe(optionValue);
+        return false;
     }
-
 });
 
 const filterSearchRecipe = async (value, filter) => {
     let foodCard = "";
-    
-    const API_KEY = "527465d2b6514ee7b5ea0e42fb8b7eb6";
 
     const fetchData = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${value}&type=${filter}&number=12&apiKey=${API_KEY}`);
-    const data = await fetchData.json();
-    const results = data.results;
-
-    results.forEach((result) => foodCard += foodComponent(result));
-
-    foodContainer.innerHTML = foodCard;
-}
-
-const filterRecipe = async (filter) => {
-    let foodCard = "";
-    
-    const API_KEY = "527465d2b6514ee7b5ea0e42fb8b7eb6";
-
-    const fetchData = await fetch(`https://api.spoonacular.com/recipes/complexSearch?type=${filter}&number=12&apiKey=${API_KEY}`);
     const data = await fetchData.json();
     const results = data.results;
 
