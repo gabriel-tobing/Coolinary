@@ -1,3 +1,5 @@
+/* Fetch API for Favorite Foods Section */
+
 const cardContainer = document.getElementById("card-container");
 
 const fetchAPI = async () => {
@@ -112,18 +114,152 @@ const cardComponent = (data) => {
     }
 }
 
-const detailComponent = (data) => {
+// fetchAPI();
+
+
+
+/* Fetch API for Recipe */
+
+const foodContainer = document.getElementById("food-container");
+const searchInput = document.getElementById("search-input");
+const searchButton = document.getElementById("search-button");
+
+searchInput.addEventListener("keyup", (e) => {
+    const userInput = searchInput.value;
+
+    if(userInput == "") {
+        fetchRandomFood();
+        listEl.style.display = "none";
+        searchInput.classList.remove("active");
+    } else if(userInput != "" && e.keyCode == 13) {
+        fetchSearchFood(userInput);
+        searchInput.classList.add("active");
+    } else if(userInput == "" && e.keyCode == 13) {
+        return false;
+    } else if(userInput != "") {
+        fetchAutoComplete(userInput);
+        searchInput.classList.add("active");
+    }
+});
+
+searchButton.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    const userValue = searchInput.value;
+
+    fetchSearchFood(userValue);
+});
+
+const foodComponent = (data) => {
     return `
-        <div class="col-12">
-            <img src="${ data.image }">
-        </div>
-        <div class="col-12">
-            <h1>${ data.title }</h1>
-        </div>
-        <div class="col-12">
-            <h1>${ data.dishTypes[0] }</h1>
+        <div class="card-group">
+            <div class="card shadow-sm">
+                <img src="${ data.image }" class="card-img-top" alt="${ data.title }" style="width: 100%; height: 200px; object-fit: cover;">
+
+                <div class="card-body pt-3 px-2">
+                    <h5 class="title card-title text-truncate">${ data.title }</h5>
+
+                    <div class="mt-4">
+                        <a href="details.html" class="primary-button shadow-sm" id="detail-button" data-id="${ data.id }">Lihat Resep</a>
+                    </div>
+                </div>
+            </div>
         </div>
     `
 }
 
-// fetchAPI();
+const fetchSearchFood = async (value) => {
+    let foodCard = "";
+    
+    const API_KEY = "527465d2b6514ee7b5ea0e42fb8b7eb6";
+
+    const fetchData = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${value}&number=12&apiKey=${API_KEY}`);
+    const data = await fetchData.json();
+    const results = data.results;
+
+    results.forEach((result) => foodCard += foodComponent(result));
+
+    foodContainer.innerHTML = foodCard;
+}
+
+const fetchRandomFood = async () => {
+    let card = "";
+    
+    const API_KEY = "527465d2b6514ee7b5ea0e42fb8b7eb6";
+
+    const fetchData = await fetch(`https://api.spoonacular.com/recipes/random?number=12&apiKey=${API_KEY}`);
+    const result = await fetchData.json();
+    const datas = result.recipes;
+
+    datas.forEach((data) => card += foodComponent(data));
+
+    foodContainer.innerHTML = card;
+}
+
+fetchRandomFood();
+
+const listEl = document.getElementById("list-group");
+
+const fetchAutoComplete = async (value) => {
+    let listGroupEl = "";
+
+    const API_KEY = "527465d2b6514ee7b5ea0e42fb8b7eb6";
+
+    const fetchData = await fetch(`https://api.spoonacular.com/recipes/autocomplete?number=5&query=${value}&apiKey=${API_KEY}`);
+    const datas = await fetchData.json();
+
+    datas.forEach((data) => listGroupEl += listComponent(data));
+
+    listEl.innerHTML = listGroupEl;
+}
+
+const listComponent = (data) => {
+    return `
+        <a href="${ data.id }" class="list-group-item list-group-item-action">${ data.title }</a>
+    `
+}
+
+const submitButton = document.getElementById("submit-button");
+const selectEl = document.querySelector("select");
+
+submitButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const userInput = searchInput.value;
+    const optionValue = selectEl.value;
+
+    if(userInput != "") {
+        filterSearchRecipe(userInput, optionValue);
+    } else {
+        filterRecipe(optionValue);
+    }
+
+});
+
+const filterSearchRecipe = async (value, filter) => {
+    let foodCard = "";
+    
+    const API_KEY = "527465d2b6514ee7b5ea0e42fb8b7eb6";
+
+    const fetchData = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${value}&type=${filter}&number=12&apiKey=${API_KEY}`);
+    const data = await fetchData.json();
+    const results = data.results;
+
+    results.forEach((result) => foodCard += foodComponent(result));
+
+    foodContainer.innerHTML = foodCard;
+}
+
+const filterRecipe = async (filter) => {
+    let foodCard = "";
+    
+    const API_KEY = "527465d2b6514ee7b5ea0e42fb8b7eb6";
+
+    const fetchData = await fetch(`https://api.spoonacular.com/recipes/complexSearch?type=${filter}&number=12&apiKey=${API_KEY}`);
+    const data = await fetchData.json();
+    const results = data.results;
+
+    results.forEach((result) => foodCard += foodComponent(result));
+
+    foodContainer.innerHTML = foodCard;
+}
