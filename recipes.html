@@ -73,16 +73,21 @@
     <!-- Jumbotron Section -->
 
     <section class="jumbotron py-5">
-        <div class="jumbotron-content h-100 container-fluid pt-5">
-            <div class=" row">
-                <div class="col-12 bg-black">
-                    <h1 class="title">Recipes</h1>
+        <div class="overlay"></div>
 
-                    <form action="" method="">
-                        <input type="search" placeholder="wj">
-                        <button type="submit">
+        <div class="jumbotron-content h-100 container-fluid pt-5">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h1 class="title mb-4">Cari Resep Favoritmu</h1>
+
+                    <form action="" method="" class="position-relative">
+                        <input type="search" placeholder="Greek Pizza" class="search-input " id="search-input" autocomplete="off">
+                        <button type="submit" class="search-button" id="search-button">
                             <i class="bi bi-search"></i>
                         </button>
+                        <div class="list-group auto-complete position-absolute start-0 end-0" id="list-group">
+
+                        </div>
                     </form>
                 </div>
             </div>
@@ -91,44 +96,39 @@
 
 
 
-    <section class="hero py-5">
-        <div class="container-fluid pt-5">
+    <!-- Food Section -->
+
+    <section class="food py-5">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6 col-12 my-auto pe-4">
-                    <h1 class="title mb-4 lh-1">Cari Resep Favoritmu</h1>
-                    <p class="desc">Ingin memasak tapi anda bingung mau masak apa? Atau tidak tahu bahan apa saja untuk membuatnya? Atau anda bingung cara untuk membuatnya? Coolinary hadir untuk itu semua, kami menyediakan fitur dimana Anda dapat mencari resep resep makanan dari seluruh dunia, lengkap dengan bahan apa saja yang digunakan dan tata cara membuatnya. Ingin mencobanya?</p>
+                <div class="col-12 mb-4">
+                    <form action="" method="">
+                        <div class="d-flex align-items-center gap-5">
+                            <select name="" id="">
+                                <option value="Main Course">Main Course</option>
+                                <option value="Side Dish">Side Dish</option>
+                                <option value="Dessert">Dessert</option>
+                                <option value="Appetizer">Appetizer</option>
+                                <option value="Salad">Salad</option>
+                                <option value="Bread">Bread</option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Soup">Soup</option>
+                                <option value="Beverage">Beverage</option>
+                                <option value="Sauce">Sauce</option>
+                                <option value="Marinade">Marinade</option>
+                                <option value="Fingerfood">Fingerfood</option>
+                                <option value="Drink">Drink</option>
+                            </select>
 
-                    <div class="mt-4">
-                        <a href="recipes.html" class="primary-button shadow-sm">Mulai Sekarang</a>
-                    </div>
+                            <!-- <input type="number" min="10" max="100" placeholder="Masukkan jumlah karbohidrat"> -->
+                            <button type="submit" id="submit-button">Filter</button>
+                        </div>
+                    </form>
                 </div>
+            </div>
 
-                <div class="col-md-6 col-12 text-md-end text-center mt-md-0 mt-4">
-                    <img src="assets/images/Home/Hero/hero-image-1.png" alt="" class="img-fluid" id="hero-image">
+            <div class="row row-cols-lg-4 row-cols-md-2 row-cols-1 g-4" id="food-container">
 
-                    <div class="row row-cols-4 mt-md-1 mt-3">
-                        <div class="col">
-                            <div class="card shadow-sm border-2" id="card">
-                                <img src="assets/images/Home/Hero/hero-image-1.png" class="card-img-top" alt="..." id="card-image">
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card shadow-sm border-2" id="card">
-                                <img src="assets/images/Home/Hero/hero-image-2.png" class="card-img-top" alt="..." id="card-image">
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card shadow-sm border-2" id="card">
-                                <img src="assets/images/Home/Hero/hero-image-3.png" class="card-img-top" alt="..." id="card-image">
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card shadow-sm border-2" id="card">
-                                <img src="assets/images/Home/Hero/hero-image-4.png" class="card-img-top" alt="..." id="card-image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
